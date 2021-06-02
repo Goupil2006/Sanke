@@ -13,10 +13,16 @@ app.get("/", (req: any, res: any) => {
 });
 
 app.get("/newgame", (req: any, res: any) => {
-	games.push(new Game(4));
+	games.push(new Game(5));
 	res.render("game", { gamenum: games.length - 1 });
 });
 
-app.listen("5050", () => {
+app.post("/update", (req: any, res: any) => {
+	let game: number = req.body.game;
+	let keypress: number | null = req.body.keypress;
+	games[game].update(keypress);
+});
+
+app.listen("3000", () => {
 	console.log("Server ist Gestartet");
 });
