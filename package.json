@@ -20,7 +20,8 @@
   "homepage": "https://github.com/Goupil2006/Sanke#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "stockfish": "^11.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.12",

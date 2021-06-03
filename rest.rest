@@ -1,0 +1,11 @@
+GET http://localhost:3000/newgame
+
+################################
+
+POST http://localhost:3000/update
+content-type: application/json
+
+{
+    "game": 0,
+    "keypress": undefined
+}

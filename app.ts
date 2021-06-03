@@ -13,14 +13,22 @@ app.get("/", (req: any, res: any) => {
 });
 
 app.get("/newgame", (req: any, res: any) => {
-	games.push(new Game(5));
+	games.push("");
+	games[games.length - 1] = new Game(5);
+	console.log(games);
 	res.render("game", { gamenum: games.length - 1 });
 });
 
 app.post("/update", (req: any, res: any) => {
-	let game: number = req.body.game;
-	let keypress: number | null = req.body.keypress;
-	games[game].update(keypress);
+	let game: number = Number(req.body.game);
+	if (req.body.keypress) {
+		let keypress: number = req.body.keypress;
+		games[game].update(keypress);
+	} else {
+		games[game].update(0);
+	}
+	console.log(games);
+	res.send(games[game].Feld);
 });
 
 app.listen("3000", () => {
