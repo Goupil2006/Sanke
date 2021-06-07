@@ -1,6 +1,6 @@
 "use strict";
 
-let size = 10;
+let size = 20;
 
 let table = document.createElement("table");
 
@@ -56,4 +56,4 @@ setInterval(() => {
 			document.getElementById(String(data[1].y - 1) + " " + String(data[1].x - 1)).setAttribute("class", "apple");
 		},
 	});
-}, 1000);
+}, 300);
