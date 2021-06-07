@@ -27,7 +27,12 @@ class Template {
 	}
 
 	getnewApplepos(): pos {
-		return { x: Math.round(Math.random() * (this.size - 1) + 1), y: Math.round(Math.random() * (this.size - 1) + 1) };
+		let SuggestApplePos = { x: Math.round(Math.random() * (this.size - 1) + 1), y: Math.round(Math.random() * (this.size - 1) + 1) };
+		if (this.Feld[SuggestApplePos.y - 1][SuggestApplePos.x - 1] == 0) {
+			return SuggestApplePos;
+		} else {
+			return this.getnewApplepos();
+		}
 	}
 
 	update(direction2: number): void {
