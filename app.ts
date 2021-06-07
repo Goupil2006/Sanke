@@ -14,7 +14,7 @@ app.get("/", (req: any, res: any) => {
 
 app.get("/newgame", (req: any, res: any) => {
 	games.push("");
-	games[games.length - 1] = new Game(5);
+	games[games.length - 1] = new Game(10);
 	console.log(games);
 	res.render("game", { gamenum: games.length - 1 });
 });
@@ -28,7 +28,7 @@ app.post("/update", (req: any, res: any) => {
 		games[game].update(0);
 	}
 	console.log(games);
-	res.send(games[game].Feld);
+	res.send([games[game].Feld, games[game].position_apple]);
 });
 
 app.listen("3000", () => {

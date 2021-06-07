@@ -27,7 +27,7 @@ class Template {
 	}
 
 	getnewApplepos(): pos {
-		return { x: Math.round(Math.random() * this.size), y: Math.round(Math.random() * this.size) };
+		return { x: Math.round(Math.random() * (this.size - 1) + 1), y: Math.round(Math.random() * (this.size - 1) + 1) };
 	}
 
 	update(direction2: number): void {
@@ -62,13 +62,18 @@ class Template {
 					this.position = { x: this.position.x - 1, y: this.position.y };
 					break;
 			}
-			if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {
-				this.lenght += 1;
-				this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
-				this.position_apple = this.getnewApplepos();
-			} else {
-				this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
-				this.movesnake();
+			if (this.position.y) {
+				if (this.position.x != undefined) {
+					if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {
+						this.lenght += 1;
+						this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
+						this.position_apple = this.getnewApplepos();
+						this.movesnake();
+					} else {
+						this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
+						this.movesnake();
+					}
+				}
 			}
 		}
 	}
