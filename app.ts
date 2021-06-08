@@ -1,12 +1,15 @@
-const express = require("express");
-const app = express();
-const Game = require("./Game.ts");
+var express = require("express");
+var app = express();
+var Game = require("./Game.ts");
+var Multiplayer = require("./Multiplayer/Multiplayer.ts");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("./public"));
 
 let games: any = [];
+
+app.use("/Multiplayer", Multiplayer);
 
 app.get("/", (req: any, res: any) => {
 	res.render("index");

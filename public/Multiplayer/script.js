@@ -1,6 +1,7 @@
 "use strict";
 
 let size = 20;
+let game = Number(document.getElementById("gamenum").innerHTML);
 
 let table = document.createElement("table");
 
@@ -33,16 +34,21 @@ document.body.onkeyup = (e) => {
 			keypress = 4;
 			break;
 	}
-};
-
-setInterval(() => {
 	$.ajax({
 		url: "/update",
 		method: "POST",
 		data: {
-			game: 0,
+			game: game,
 			keypress: keypress,
 		},
+		success: function (data) {},
+	});
+};
+
+setInterval(() => {
+	$.ajax({
+		url: "/getFeld",
+		method: "POST",
 		success: function (data) {
 			for (let i = 0; i < size; i++) {
 				for (let j = 0; j < size; j++) {
