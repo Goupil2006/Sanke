@@ -27,12 +27,13 @@ class MultiplayerTemplate {
 		setInterval(this.update, 300);
 	}
 
-	newPlayer(): number {
+	newPlayer = (): number => {
 		this.Players.push({ direction: 2, length: 2, x: Math.round(this.size / 2), y: Math.round(this.size / 2) });
+		console.log("newPlayer");
 		return this.Players.length - 1;
-	}
+	};
 
-	changedirection(Player: number, direction: number): void {
+	changedirection = (Player: number, direction: number): void => {
 		let dirationPlayer = this.Players[Player].direction;
 		if (direction !== dirationPlayer) {
 			if (direction !== 3 && dirationPlayer === 1) {
@@ -48,9 +49,9 @@ class MultiplayerTemplate {
 				this.Players[Player].direction = direction;
 			}
 		}
-	}
+	};
 
-	getnewApplepos(): pos {
+	getnewApplepos = (): pos => {
 		let SuggestApplePos = { x: Math.round(Math.random() * (this.size - 1)), y: Math.round(Math.random() * (this.size - 1)) };
 		let isPosOk = true;
 		for (let i = 0; i < this.position_apples.length; i++) {
@@ -63,10 +64,9 @@ class MultiplayerTemplate {
 		} else {
 			return this.getnewApplepos();
 		}
-	}
+	};
 
 	update = (): void => {
-		console.log(this.Players);
 		for (let i = 0; i < this.Players.length; i++) {
 			switch (this.Players[i].direction) {
 				case 1:
@@ -94,26 +94,26 @@ class MultiplayerTemplate {
 					}
 
 					if (isPosSame) {
-						this.Players[i].lenght += 1;
+						this.Players[i].length += 1;
 					}
-					this.Feld[this.Players[i].y][this.Players[i].x] = { val: this.Players[i].lenght, Player: i };
+					this.Feld[this.Players[i].y][this.Players[i].x] = { val: this.Players[i].length, Player: i };
 					this.movesmake();
 				}
 			}
 		}
 	};
 
-	movesmake() {
+	movesmake = () => {
 		for (let i = 0; i < this.size; i++) {
 			for (let j = 0; j < this.size; j++) {
-				if (this.Feld[i][j] != 0) {
+				if (this.Feld[i][j].val != 0) {
 					this.Feld[i][j].val -= 1;
 				} else {
 					this.Feld[i][j].Player = null;
 				}
 			}
 		}
-	}
+	};
 }
 
 module.exports = MultiplayerTemplate;

@@ -35,31 +35,36 @@ document.body.onkeyup = (e) => {
 			break;
 	}
 	$.ajax({
-		url: "/update",
+		url: "update",
 		method: "POST",
 		data: {
 			game: game,
 			keypress: keypress,
 		},
-		success: function (data) {},
+		success: function (data) {
+			console.log(data);
+		},
 	});
 };
 
 setInterval(() => {
 	$.ajax({
-		url: "/getFeld",
+		url: "getFeld",
 		method: "POST",
 		success: function (data) {
+			console.log(data);
 			for (let i = 0; i < size; i++) {
 				for (let j = 0; j < size; j++) {
-					if (data[0][i][j] > 0) {
+					if (data[0][i][j].val > 0) {
 						document.getElementById(String(i) + " " + String(j)).setAttribute("class", "black");
 					} else {
 						document.getElementById(String(i) + " " + String(j)).setAttribute("class", "white");
 					}
 				}
 			}
-			document.getElementById(String(data[1].y - 1) + " " + String(data[1].x - 1)).setAttribute("class", "apple");
+			for (let i = 0; i < data[1].length; i++) {
+				document.getElementById(String(data[1][i].y) + " " + String(data[1][i].x)).setAttribute("class", "apple");
+			}
 		},
 	});
 }, 300);

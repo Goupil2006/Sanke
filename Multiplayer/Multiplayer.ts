@@ -11,10 +11,11 @@ router.get("/", (req: any, res: any) => {
 
 router.post("/update", (req: any, res: any) => {
 	Multiplayergame.changedirection(Number(req.body.game), Number(req.body.keypress));
+	res.send("gut");
 });
 
 router.post("/getFeld", (req: any, res: any) => {
-	res.send(Multiplayergame.Feld);
+	res.send([Multiplayergame.Feld, Multiplayergame.position_apples]);
 });
 
 module.exports = router;
