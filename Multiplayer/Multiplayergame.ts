@@ -67,6 +67,7 @@ class MultiplayerTemplate {
 	};
 
 	update = (): void => {
+		console.log(this.Players);
 		for (let i = 0; i < this.Players.length; i++) {
 			switch (this.Players[i].direction) {
 				case 1:
@@ -82,24 +83,20 @@ class MultiplayerTemplate {
 					this.Players[i].x = this.Players[i].x - 1;
 					break;
 			}
-			if (this.Players[i].y) {
-				if (this.Players[i].x != undefined) {
-					let isPosSame = false;
+			let isPosSame = false;
 
-					for (let j = 0; j < this.position_apples.length; j++) {
-						if (this.Players[i].x == this.position_apples[j].x && this.Players[i].y == this.position_apples[j].y) {
-							isPosSame = true;
-							this.position_apples[j] = this.getnewApplepos();
-						}
-					}
-
-					if (isPosSame) {
-						this.Players[i].length += 1;
-					}
-					this.Feld[this.Players[i].y][this.Players[i].x] = { val: this.Players[i].length, Player: i };
-					this.movesmake();
+			for (let j = 0; j < this.position_apples.length; j++) {
+				if (this.Players[i].x == this.position_apples[j].x && this.Players[i].y == this.position_apples[j].y) {
+					isPosSame = true;
+					this.position_apples[j] = this.getnewApplepos();
 				}
 			}
+
+			if (isPosSame) {
+				this.Players[i].length += 1;
+			}
+			this.Feld[this.Players[i].y][this.Players[i].x] = { val: this.Players[i].length, Player: i };
+			this.movesmake();
 		}
 	};
 
