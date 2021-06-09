@@ -1,6 +1,7 @@
 "use strict";
 
 let size = 20;
+let game = Number(document.getElementById("gamenum").innerHTML);
 
 let table = document.createElement("table");
 
@@ -33,27 +34,37 @@ document.body.onkeyup = (e) => {
 			keypress = 4;
 			break;
 	}
+	$.ajax({
+		url: "update",
+		method: "POST",
+		data: {
+			game: game,
+			keypress: keypress,
+		},
+		success: function (data) {
+			console.log(data);
+		},
+	});
 };
 
 setInterval(() => {
 	$.ajax({
-		url: "/update",
+		url: "getFeld",
 		method: "POST",
-		data: {
-			game: 0,
-			keypress: keypress,
-		},
 		success: function (data) {
+			console.log(data);
 			for (let i = 0; i < size; i++) {
 				for (let j = 0; j < size; j++) {
-					if (data[0][i][j] > 0) {
+					if (data[0][i][j].val > 0) {
 						document.getElementById(String(i) + " " + String(j)).setAttribute("class", "black");
 					} else {
 						document.getElementById(String(i) + " " + String(j)).setAttribute("class", "white");
 					}
 				}
 			}
-			document.getElementById(String(data[1].y - 1) + " " + String(data[1].x - 1)).setAttribute("class", "apple");
+			for (let i = 0; i < data[1].length; i++) {
+				document.getElementById(String(data[1][i].y) + " " + String(data[1][i].x)).setAttribute("class", "apple");
+			}
 		},
 	});
 }, 300);

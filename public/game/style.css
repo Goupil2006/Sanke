@@ -1,0 +1,20 @@
+body {
+    background: #191919;
+}
+
+td{
+    width: 2em;
+    height: 2em;
+}
+
+.black {
+    background: black;
+}
+
+.white {
+    background: white;
+}
+
+.apple {
+    background: red;
+}
