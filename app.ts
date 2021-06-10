@@ -30,10 +30,9 @@ app.post("/update", (req: any, res: any) => {
 	} else {
 		games[game].update(0);
 	}
-	console.log(games);
 	res.send([games[game].Feld, games[game].position_apple]);
 });
 
-app.listen("3000", () => {
+app.listen("7070", () => {
 	console.log("Server ist Gestartet");
 });
