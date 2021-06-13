@@ -1,7 +1,7 @@
-var express = require("express");
-var app = express();
+import express from "express";
 var Game = require("./Game.ts");
 var Multiplayer = require("./Multiplayer/Multiplayer.ts");
+var app = express();
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +33,6 @@ app.post("/update", (req: any, res: any) => {
 	res.send([games[game].Feld, games[game].position_apple]);
 });
 
-app.listen("7070", () => {
+app.listen("7777", () => {
 	console.log("Server ist Gestartet");
 });

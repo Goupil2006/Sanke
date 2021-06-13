@@ -27,7 +27,7 @@ class MultiplayerTemplate {
 		for (let i = 0; i < this.size / 5; i++) {
 			this.position_apples.push(this.getnewApplepos());
 		}
-		setInterval(this.update, 300);
+		setInterval(this.update, 100);
 	}
 
 	newPlayer = (): number => {

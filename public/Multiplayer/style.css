@@ -2,9 +2,15 @@ body {
     background: #191919;
 }
 
+table {
+    position: absolute;
+    width: 40em;
+    height: 40em;
+}
+
 td{
-    width: 2em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
 }
 
 .black {

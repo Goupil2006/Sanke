@@ -1,6 +1,6 @@
 "use strict";
 
-let size = 20;
+let size = 40;
 let game = Number(document.getElementById("gamenum").innerHTML);
 
 let table = document.createElement("table");
@@ -51,6 +51,9 @@ setInterval(() => {
 	$.ajax({
 		url: "getFeld",
 		method: "POST",
+		data: {
+			game: game,
+		},
 		success: function (data) {
 			for (let i = 0; i < size; i++) {
 				for (let j = 0; j < size; j++) {
@@ -68,4 +71,4 @@ setInterval(() => {
 			}
 		},
 	});
-}, 300);
+}, 100);
