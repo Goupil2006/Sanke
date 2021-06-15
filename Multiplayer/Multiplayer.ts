@@ -59,14 +59,7 @@ router.post("/newParty", (req: any, res: any) => {
 		]);
 	});
 
-	res.send(`ihre Url ist \n localhost:9999/Multiplayer/${id}`);
+	res.send(`ihre Url ist \n localhost:1111/Multiplayer/${id}`);
 });
-
-/*router.get("/Party", (req: any, res: any) => {
-	let id = req.body.game;
-	res.send(id + MultiplayerPartys[String(id)]);
-	//let gamenum = Multiplayergame.newPlayer();
-	//res.render("multiplayer", { gamenum: gamenum });
-});*/
 
 module.exports = router;
