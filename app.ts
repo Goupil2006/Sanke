@@ -33,6 +33,6 @@ app.post("/update", (req: any, res: any) => {
 	res.send([games[game].Feld, games[game].position_apple]);
 });
 
-app.listen("7777", () => {
+app.listen("1111", () => {
 	console.log("Server ist Gestartet");
 });

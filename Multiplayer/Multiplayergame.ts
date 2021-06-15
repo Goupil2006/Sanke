@@ -6,10 +6,12 @@ interface Player {
 }
 class MultiplayerTemplate {
 	size: number;
+	speed: number;
 	Feld: any;
 	Players: any[];
 	position_apples: pos[];
-	constructor(size: number) {
+	constructor(size: number, speed: number) {
+		this.speed = speed;
 		this.size = size;
 		this.Feld = [];
 		this.Players = [];
@@ -27,7 +29,7 @@ class MultiplayerTemplate {
 		for (let i = 0; i < this.size / 5; i++) {
 			this.position_apples.push(this.getnewApplepos());
 		}
-		setInterval(this.update, 100);
+		setInterval(this.update, this.speed);
 	}
 
 	newPlayer = (): number => {

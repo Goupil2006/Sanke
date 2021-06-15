@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form action="/Multiplayer/newParty" method="post">
+			<label for="size">Welche Größe soll das Feld haben?</label>
+			<select name="size" id="size" required>
+				<option value="10">10*10</option>
+				<option value="20">20*20</option>
+				<option value="30">30*30</option>
+				<option value="40">40*40</option>
+				<option value="50">50*50</option>
+			</select>
+			<label for="speed">Welche Größe soll das Feld haben?</label>
+			<select name="speed" id="speed" required>
+				<option value="50">super Fast</option>
+				<option value="100">Fast</option>
+				<option value="200">Normal</option>
+				<option value="300">Slow</option>
+				<option value="5000">For Test (5s)</option>
+			</select>
+			<input type="submit" value="Erstellen" />
+		</form>
+	</body>
+</html>
