@@ -9,6 +9,7 @@ class Template {
 	lenght: number;
 	position: pos;
 	position_apple: pos;
+	dead: boolean;
 	constructor(size: number) {
 		this.size = size;
 		this.Feld = [];
@@ -23,6 +24,7 @@ class Template {
 		this.lenght = 2;
 		this.position = { x: Math.round(size / 2), y: Math.round(size / 2) };
 		this.position_apple = this.getnewApplepos();
+		this.dead = false;
 		console.log(this.Feld);
 	}
 
@@ -38,7 +40,7 @@ class Template {
 	update(direction2: number): void {
 		let direction = Number(direction2);
 		console.log("test");
-		if (direction != 0) {
+		if (direction != 0 && this.dead != true) {
 			if (direction !== this.direction) {
 				if (direction !== 3 && this.direction === 1) {
 					this.direction = direction;
@@ -67,20 +69,29 @@ class Template {
 					this.position = { x: this.position.x - 1, y: this.position.y };
 					break;
 			}
-			if (this.position.y) {
-				if (this.position.x != undefined) {
-					if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {
-						this.lenght += 1;
-						this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
-						this.position_apple = this.getnewApplepos();
-						this.movesnake();
+			if (this.Feld[this.position.y-1][this.position.x-1] == 0) {
+					if (this.position.y-1 < this.size +1 && this.position.y-1 > 0 -1  && this.position.x-1 < this.size + 1 && this.position.x-1 > 0-1) {
+						if (this.position.y) {
+							if (this.position.x != undefined) {
+								if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {
+								this.lenght += 1;
+								this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
+								this.position_apple = this.getnewApplepos();
+								this.movesnake();
+								} else {
+								this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
+								this.movesnake();
+								}
+							}
+						}
+						
 					} else {
-						this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
-						this.movesnake();
+						this.dead = true;
 					}
-				}
-			}
+		} else {
+			this.dead= true;
 		}
+	}
 	}
 
 	movesnake() {
