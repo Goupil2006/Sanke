@@ -67,6 +67,7 @@ class Template {
 					this.position = { x: this.position.x - 1, y: this.position.y };
 					break;
 			}
+
 			if (this.position.y) {
 				if (this.position.x != undefined) {
 					if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {

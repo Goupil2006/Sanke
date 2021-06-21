@@ -1,4 +1,3 @@
-import { RSA_NO_PADDING } from "constants";
 import express from "express";
 var router = express.Router();
 var Multiplayergames = require("./Multiplayergame.ts");
@@ -59,7 +58,7 @@ router.post("/newParty", (req: any, res: any) => {
 		]);
 	});
 
-	res.send(`ihre Url ist \n localhost:1111/Multiplayer/${id}`);
+	res.send(`Ihre URL ist \n localhost:1111/Multiplayer/${id}`);
 });
 
 module.exports = router;
