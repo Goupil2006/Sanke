@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanke</title>
+    <style>
+        body{
+            font-family: Nexa;
+            background-image: url(https://media.masterfisch.com/63871-thickbox_default/sanke.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        input{
+            width: 30em;
+            height: 5em;
+            background-color: chartreuse;
+            border-radius: 1em;
+            text-align: center;
+            color: black;
+        }
+        
+        a{
+            background-color: chartreuse;
+            color: black;
+            padding: 20px 0px;
+            width: 25em;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1em;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h2>Willkommen bei</h2>
+    <h1>SANKE</h1>
+    <br>
+        <a href="/newgame" target="_blank">SINGLEPLAYER</a> <br> <br>
+        <a href="/multiplayer">MULTIPLAYER</a> <br> <br>
+        <a href="/multiplayer/newParty">START PARTY</a> <br> <br> <br>
+
+    <input type="text" id="Party" placeholder="PARTY ID"><h2></h2></input> <br> <br>
+    </center>
+    <script>
+        document.getElementById("Party").addEventListener("change", () => {
+            location.href = "/Multiplayer/" + document.getElementById("Party").value; 
+        });
+    </script>
+</body>
+</html>
