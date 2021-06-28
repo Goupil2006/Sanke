@@ -37,7 +37,7 @@ class Template {
 		}
 	}
 
-	update(direction2: number): void {
+	update = (direction2: number): void => {
 		let direction = Number(direction2);
 		console.log("test");
 		if (direction != 0 && this.dead != true) {
@@ -77,32 +77,39 @@ class Template {
 						this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
 						this.position_apple = this.getnewApplepos();
 						this.movesnake();
-			if (this.Feld[this.position.y-1][this.position.x-1] == 0) {
-					if (this.position.y-1 < this.size +1 && this.position.y-1 > 0 -1  && this.position.x-1 < this.size + 1 && this.position.x-1 > 0-1) {
-						if (this.position.y) {
-							if (this.position.x != undefined) {
-								if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {
+					}
+				}
+			} else {
+				this.dead = true;
+			}
+			if (this.Feld[this.position.y - 1][this.position.x - 1] == 0) {
+				if (
+					this.position.y - 1 < this.size + 1 &&
+					this.position.y - 1 > 0 - 1 &&
+					this.position.x - 1 < this.size + 1 &&
+					this.position.x - 1 > 0 - 1
+				) {
+					if (this.position.y) {
+						if (this.position.x != undefined) {
+							if (this.position.x === this.position_apple.x && this.position.y === this.position_apple.y) {
 								this.lenght += 1;
 								this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
 								this.position_apple = this.getnewApplepos();
 								this.movesnake();
-								} else {
+							} else {
 								this.Feld[this.position.y - 1][this.position.x - 1] = this.lenght;
 								this.movesnake();
-								}
 							}
 						}
-						
-					} else {
-						this.dead = true;
 					}
-		} else {
-			this.dead= true;
+				} else {
+					this.dead = true;
+				}
+			}
 		}
-					}
-	}
+	};
 
-	movesnake() {
+	movesnake = () => {
 		for (let i = 0; i < this.size; i++) {
 			for (let j = 0; j < this.size; j++) {
 				if (this.Feld[i][j] != 0) {
@@ -110,7 +117,7 @@ class Template {
 				}
 			}
 		}
-	}
+	};
 }
 
 module.exports = Template;

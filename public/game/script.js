@@ -15,7 +15,7 @@ for (let i = 0; i < size; i++) {
 	table.appendChild(row);
 }
 
-document.body.append(table);
+document.getElementById("game").append(table);
 
 let keypress = 0;
 
