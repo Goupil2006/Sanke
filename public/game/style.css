@@ -2,6 +2,13 @@ body {
     background: #191919;
 }
 
+table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10em;
+}
+
 td{
     width: 2em;
     height: 2em;
