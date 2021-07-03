@@ -32,18 +32,18 @@ class MultiplayerTemplate {
 		setInterval(this.update, this.speed);
 	}
 
-	newPlayer = (): number => {
+	newPlayer(): number {
 		this.Players.push({
 			isdead: false,
 			dirupdated: false,
 			direction: 2,
-			length: 2,
+			length: 0,
 			x: Math.round(this.size / 2),
 			y: Math.round(this.size / 2),
 		});
 		console.log("newPlayer");
-		return this.Players.length - 1;
-	};
+		return this.Players.length;
+	}
 
 	changedirection = (Player: number, direction: number): void => {
 		let dirationPlayer = this.Players[Player].direction;
@@ -136,6 +136,7 @@ class MultiplayerTemplate {
 				if (isPosSame) {
 					currPlayer.length += 1;
 				}
+
 				this.movesmake();
 				if (this.Feld[currPlayer.y][currPlayer.x].Player != null) {
 					currPlayer.isdead = true;

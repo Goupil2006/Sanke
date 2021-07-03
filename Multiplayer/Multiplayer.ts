@@ -4,10 +4,10 @@ var Multiplayergames = require("./Multiplayergame.ts");
 
 var Multiplayergame = new Multiplayergames(40, 100);
 
-var MultiplayerPartys: any = { "1": new Multiplayergames(50, 100) };
+var MultiplayerPartys: any = { "1": new Multiplayergames(50, 500) };
 
 router.get("/", (req: any, res: any) => {
-	let gamenum = Multiplayergame.newPlayer();
+	let gamenum = Multiplayergame.newPlayer() - 1;
 	res.render("multiplayer", { gamenum: gamenum });
 });
 

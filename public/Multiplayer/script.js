@@ -55,6 +55,7 @@ setInterval(() => {
 			game: game,
 		},
 		success: function (data) {
+			console.log(data);
 			for (let i = 0; i < size; i++) {
 				for (let j = 0; j < size; j++) {
 					if (data[0][i][j].Player === game) {
