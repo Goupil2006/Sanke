@@ -117,7 +117,12 @@ class MultiplayerTemplate {
 				}
 
 				//check if player ist outside the Field
-
+			}
+		}
+		this.movesmake();
+		for (let i = 0; i < this.Players.length; i++) {
+			const currPlayer = this.Players[i];
+			if (!currPlayer.isdead) {
 				if (currPlayer.x >= this.size || currPlayer.x < 0 || currPlayer.y >= this.size || currPlayer.y < 0) {
 					currPlayer.isdead = true;
 					this.killPlayer(i);
@@ -136,8 +141,6 @@ class MultiplayerTemplate {
 				if (isPosSame) {
 					currPlayer.length += 1;
 				}
-
-				this.movesmake();
 				if (this.Feld[currPlayer.y][currPlayer.x].Player != null) {
 					currPlayer.isdead = true;
 					this.killPlayer(i);
