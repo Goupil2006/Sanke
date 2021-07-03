@@ -41,7 +41,6 @@ class MultiplayerTemplate {
 			x: Math.round(this.size / 2),
 			y: Math.round(this.size / 2),
 		});
-		console.log("newPlayer");
 		return this.Players.length;
 	}
 

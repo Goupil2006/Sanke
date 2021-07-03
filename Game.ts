@@ -25,7 +25,6 @@ class Template {
 		this.position = { x: Math.round(size / 2), y: Math.round(size / 2) };
 		this.position_apple = this.getnewApplepos();
 		this.dead = false;
-		console.log(this.Feld);
 	}
 
 	getnewApplepos(): pos {
@@ -39,7 +38,6 @@ class Template {
 
 	update = (direction2: number): void => {
 		let direction = Number(direction2);
-		console.log("test");
 		if (direction != 0 && this.dead != true) {
 			if (direction !== this.direction) {
 				if (direction !== 3 && this.direction === 1) {

@@ -18,7 +18,6 @@ app.get("/", (req: any, res: any) => {
 app.get("/newgame", (req: any, res: any) => {
 	games.push("");
 	games[games.length - 1] = new Game(20);
-	console.log(games);
 	res.render("game", { gamenum: games.length - 1 });
 });
 

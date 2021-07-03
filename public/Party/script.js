@@ -43,9 +43,7 @@ document.body.onkeyup = (e) => {
 			game: game,
 			keypress: keypress,
 		},
-		success: function (data) {
-			console.log(data);
-		},
+		success: function (data) {},
 	});
 };
 
