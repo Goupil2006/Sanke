@@ -67,6 +67,9 @@ setInterval(() => {
 			for (let i = 0; i < data[1].length; i++) {
 				document.getElementById(String(data[1][i].y) + " " + String(data[1][i].x)).setAttribute("class", "apple");
 			}
+			if (data[4]) {
+				window.location.href = "./../";
+			}
 		},
 	});
 }, 100);

@@ -22,6 +22,7 @@ router.post("/getFeld", (req: any, res: any) => {
 		Multiplayergame.position_apples,
 		Multiplayergame.Players[req.body.game].x,
 		Multiplayergame.Players[req.body.game].y,
+		Multiplayergame.Players[req.body.game].isdead,
 	]);
 });
 
@@ -35,7 +36,7 @@ router.post("/newParty", (req: any, res: any) => {
 
 	//Router Functions
 	router.get(`/${id}`, (req: any, res: any) => {
-		let game = MultiplayerPartys[String(id)].newPlayer();
+		let game = MultiplayerPartys[String(id)].newPlayer() - 1;
 		res.render("MultiplayerParty", {
 			id: id,
 			size: MultiplayerPartys[String(id)].size,
@@ -55,6 +56,7 @@ router.post("/newParty", (req: any, res: any) => {
 			MultiplayerPartys[`${id}`].position_apples,
 			MultiplayerPartys[`${id}`].Players[req.body.game].x,
 			MultiplayerPartys[`${id}`].Players[req.body.game].y,
+			MultiplayerPartys[`${id}`].Players[req.body.game].isdead,
 		]);
 	});
 
